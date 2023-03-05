@@ -4,8 +4,6 @@ import { galleryItems } from "./gallery-items.js";
 console.log(galleryItems);
 const galleryContainer = document.querySelector(".gallery");
 
-galleryContainer.addEventListener("click", addOriginalImg);
-
 galleryContainer.insertAdjacentHTML(
   "afterbegin",
   createGalaryMarkup(galleryItems)
@@ -25,16 +23,9 @@ function createGalaryMarkup(galleryItems) {
 
 createGalaryMarkup(galleryItems);
 
-function addOriginalImg(events) {
-  events.preventDefault();
-  if (!events.target.classList.contains("gallery__image")) {
-    return;
-  }
-
-  var lightbox = new SimpleLightbox(".gallery a", {
-    spinner: true,
-    captionsData: "alt",
-    captionPosition: "bottom",
-    captionDelay: 250,
-  });
-}
+var lightbox = new SimpleLightbox(".gallery a", {
+  spinner: true,
+  captionsData: "alt",
+  captionPosition: "bottom",
+  captionDelay: 250,
+});
